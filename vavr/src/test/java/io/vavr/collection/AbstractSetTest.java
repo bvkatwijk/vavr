@@ -34,7 +34,6 @@ public abstract class AbstractSetTest extends AbstractTraversableRangeTest {
     @Override
     abstract protected <T> Set<T> of(T element);
 
-    @SuppressWarnings("unchecked")
     @Override
     abstract protected <T> Set<T> of(T... elements);
 
