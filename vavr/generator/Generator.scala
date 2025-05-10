@@ -3423,7 +3423,7 @@ def generateTestClasses(): Unit = {
                       public void shouldUncheckedThrowIllegalState() {
                           $assertThrows(${im.getType("java.security.NoSuchAlgorithmException")}.class, () -> {
                               final Function$i<${(1 to i).gen(j => "String")(", ")}, MessageDigest> unchecked = digest.unchecked();
-                              unchecked.apply(${toArgList("Unknown")}); // Look ma, we throw an undeclared checked exception!
+                              unchecked.apply(${toArgList("Unknown")}); $comment Look ma, we throw an undeclared checked exception!
                           });
                       }
 
