@@ -244,6 +244,41 @@ public class CheckedFunction5Test {
 
     }
 
+    @Nested
+    class CurryTests {
+
+      @Test
+      public void shouldCurry1()  throws Throwable {
+          final CheckedFunction5<String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5) -> s1 + s2 + s3 + s4 + s5;
+          assertThat(concat.curry1("s1").apply("s2", "s3", "s4", "s5")).isEqualTo("s1s2s3s4s5");
+      }
+
+      @Test
+      public void shouldCurry2()  throws Throwable {
+          final CheckedFunction5<String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5) -> s1 + s2 + s3 + s4 + s5;
+          assertThat(concat.curry2("s2").apply("s1", "s3", "s4", "s5")).isEqualTo("s1s2s3s4s5");
+      }
+
+      @Test
+      public void shouldCurry3()  throws Throwable {
+          final CheckedFunction5<String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5) -> s1 + s2 + s3 + s4 + s5;
+          assertThat(concat.curry3("s3").apply("s1", "s2", "s4", "s5")).isEqualTo("s1s2s3s4s5");
+      }
+
+      @Test
+      public void shouldCurry4()  throws Throwable {
+          final CheckedFunction5<String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5) -> s1 + s2 + s3 + s4 + s5;
+          assertThat(concat.curry4("s4").apply("s1", "s2", "s3", "s5")).isEqualTo("s1s2s3s4s5");
+      }
+
+      @Test
+      public void shouldCurry5()  throws Throwable {
+          final CheckedFunction5<String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5) -> s1 + s2 + s3 + s4 + s5;
+          assertThat(concat.curry5("s5").apply("s1", "s2", "s3", "s4")).isEqualTo("s1s2s3s4s5");
+      }
+
+    }
+
     @Test
     public void shouldNarrow() throws Throwable{
         final CheckedFunction5<Number, Number, Number, Number, Number, String> wideFunction = (o1, o2, o3, o4, o5) -> String.format("Numbers are: %s, %s, %s, %s, %s", o1, o2, o3, o4, o5);

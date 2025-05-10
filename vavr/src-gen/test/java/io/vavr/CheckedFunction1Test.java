@@ -214,6 +214,17 @@ public class CheckedFunction1Test {
 
     }
 
+    @Nested
+    class CurryTests {
+
+      @Test
+      public void shouldCurry1()  throws Throwable {
+          final CheckedFunction1<String, String> concat = (String s1) -> s1;
+          assertThat(concat.curry1("s1").apply()).isEqualTo("s1");
+      }
+
+    }
+
     @Test
     public void shouldNarrow() throws Throwable{
         final CheckedFunction1<Number, String> wideFunction = (o1) -> String.format("Numbers are: %s", o1);

@@ -226,6 +226,59 @@ public class Function8Test {
 
     }
 
+    @Nested
+    class CurryTests {
+
+      @Test
+      public void shouldCurry1() {
+          final Function8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
+          assertThat(concat.curry1("s1").apply("s2", "s3", "s4", "s5", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+      }
+
+      @Test
+      public void shouldCurry2() {
+          final Function8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
+          assertThat(concat.curry2("s2").apply("s1", "s3", "s4", "s5", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+      }
+
+      @Test
+      public void shouldCurry3() {
+          final Function8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
+          assertThat(concat.curry3("s3").apply("s1", "s2", "s4", "s5", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+      }
+
+      @Test
+      public void shouldCurry4() {
+          final Function8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
+          assertThat(concat.curry4("s4").apply("s1", "s2", "s3", "s5", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+      }
+
+      @Test
+      public void shouldCurry5() {
+          final Function8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
+          assertThat(concat.curry5("s5").apply("s1", "s2", "s3", "s4", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+      }
+
+      @Test
+      public void shouldCurry6() {
+          final Function8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
+          assertThat(concat.curry6("s6").apply("s1", "s2", "s3", "s4", "s5", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+      }
+
+      @Test
+      public void shouldCurry7() {
+          final Function8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
+          assertThat(concat.curry7("s7").apply("s1", "s2", "s3", "s4", "s5", "s6", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+      }
+
+      @Test
+      public void shouldCurry8() {
+          final Function8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
+          assertThat(concat.curry8("s8").apply("s1", "s2", "s3", "s4", "s5", "s6", "s7")).isEqualTo("s1s2s3s4s5s6s7s8");
+      }
+
+    }
+
     @Test
     public void shouldNarrow(){
         final Function8<Number, Number, Number, Number, Number, Number, Number, Number, String> wideFunction = (o1, o2, o3, o4, o5, o6, o7, o8) -> String.format("Numbers are: %s, %s, %s, %s, %s, %s, %s, %s", o1, o2, o3, o4, o5, o6, o7, o8);

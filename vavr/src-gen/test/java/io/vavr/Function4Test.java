@@ -194,6 +194,35 @@ public class Function4Test {
 
     }
 
+    @Nested
+    class CurryTests {
+
+      @Test
+      public void shouldCurry1() {
+          final Function4<String, String, String, String, String> concat = (String s1, String s2, String s3, String s4) -> s1 + s2 + s3 + s4;
+          assertThat(concat.curry1("s1").apply("s2", "s3", "s4")).isEqualTo("s1s2s3s4");
+      }
+
+      @Test
+      public void shouldCurry2() {
+          final Function4<String, String, String, String, String> concat = (String s1, String s2, String s3, String s4) -> s1 + s2 + s3 + s4;
+          assertThat(concat.curry2("s2").apply("s1", "s3", "s4")).isEqualTo("s1s2s3s4");
+      }
+
+      @Test
+      public void shouldCurry3() {
+          final Function4<String, String, String, String, String> concat = (String s1, String s2, String s3, String s4) -> s1 + s2 + s3 + s4;
+          assertThat(concat.curry3("s3").apply("s1", "s2", "s4")).isEqualTo("s1s2s3s4");
+      }
+
+      @Test
+      public void shouldCurry4() {
+          final Function4<String, String, String, String, String> concat = (String s1, String s2, String s3, String s4) -> s1 + s2 + s3 + s4;
+          assertThat(concat.curry4("s4").apply("s1", "s2", "s3")).isEqualTo("s1s2s3s4");
+      }
+
+    }
+
     @Test
     public void shouldNarrow(){
         final Function4<Number, Number, Number, Number, String> wideFunction = (o1, o2, o3, o4) -> String.format("Numbers are: %s, %s, %s, %s", o1, o2, o3, o4);

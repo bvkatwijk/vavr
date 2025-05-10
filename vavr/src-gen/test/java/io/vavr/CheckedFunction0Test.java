@@ -201,6 +201,11 @@ public class CheckedFunction0Test {
 
     }
 
+    @Nested
+    class CurryTests {
+
+    }
+
     @Test
     public void shouldNarrow() throws Throwable{
         final CheckedFunction0<String> wideFunction = () -> "Zero args";

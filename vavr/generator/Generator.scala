@@ -1672,7 +1672,7 @@ def generateMainClasses(): Unit = {
 
               ${(1 to i).gen(j => {
                 val partialApplicationArgs = (1 to i).filter(_ != j).gen(k => s"T$k t$k")(", ")
-                val resultFunctionGenerics = (1 to i).filter(_ != j).gen(k => s"T$k")(", ")
+                val resultFunctionGenerics = (1 to i+1).filter(_ != j).gen(k => if (k == s"${i + 1}") then "R" else s"T$k")(", ")
                 val applyArgs = (1 to i).gen(k => s"t$k")(", ")
                 xs"""
                   /$javadoc
@@ -1681,7 +1681,7 @@ def generateMainClasses(): Unit = {
                    * @param t$j argument $j
                    * @return a partial application of this function
                    */
-                  default $name${i - 1}<$resultFunctionGenerics, R> curry$j(T$j t$j) {
+                  default $name${i - 1}<$resultFunctionGenerics> curry$j(T$j t$j) {
                       return ($partialApplicationArgs) -> apply($applyArgs);
                   }
                 """
@@ -3499,7 +3499,7 @@ def generateTestClasses(): Unit = {
                   @$test
                   public void shouldCurry$j() ${checked.gen(" throws Throwable ")}{
                       final $name$i<$genArgs, String> concat = ($params) -> $concat;
-                      assertThat(concat.curry$j(\"$j\").apply($values)).isEqualTo(\"$expected\");
+                      assertThat(concat.curry$j(\"s$j\").apply($values)).isEqualTo(\"$expected\");
                   }
 
                   """

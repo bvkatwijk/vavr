@@ -191,6 +191,17 @@ public class Function1Test {
 
     }
 
+    @Nested
+    class CurryTests {
+
+      @Test
+      public void shouldCurry1() {
+          final Function1<String, String> concat = (String s1) -> s1;
+          assertThat(concat.curry1("s1").apply()).isEqualTo("s1");
+      }
+
+    }
+
     @Test
     public void shouldNarrow(){
         final Function1<Number, String> wideFunction = (o1) -> String.format("Numbers are: %s", o1);

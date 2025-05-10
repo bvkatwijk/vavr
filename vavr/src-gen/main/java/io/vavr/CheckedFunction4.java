@@ -204,6 +204,46 @@ public interface CheckedFunction4<T1, T2, T3, T4, R> extends Serializable {
     }
 
     /**
+     * Curries supplied value to this function as the 1st argument.
+     *
+     * @param t1 argument 1
+     * @return a partial application of this function
+     */
+    default CheckedFunction3<T2, T3, T4, R> curry1(T1 t1) {
+        return (T2 t2, T3 t3, T4 t4) -> apply(t1, t2, t3, t4);
+    }
+
+    /**
+     * Curries supplied value to this function as the 2nd argument.
+     *
+     * @param t2 argument 2
+     * @return a partial application of this function
+     */
+    default CheckedFunction3<T1, T3, T4, R> curry2(T2 t2) {
+        return (T1 t1, T3 t3, T4 t4) -> apply(t1, t2, t3, t4);
+    }
+
+    /**
+     * Curries supplied value to this function as the 3rd argument.
+     *
+     * @param t3 argument 3
+     * @return a partial application of this function
+     */
+    default CheckedFunction3<T1, T2, T4, R> curry3(T3 t3) {
+        return (T1 t1, T2 t2, T4 t4) -> apply(t1, t2, t3, t4);
+    }
+
+    /**
+     * Curries supplied value to this function as the 4th argument.
+     *
+     * @param t4 argument 4
+     * @return a partial application of this function
+     */
+    default CheckedFunction3<T1, T2, T3, R> curry4(T4 t4) {
+        return (T1 t1, T2 t2, T3 t3) -> apply(t1, t2, t3, t4);
+    }
+
+    /**
      * Returns the number of function arguments.
      * @return an int value &gt;= 0
      * @see <a href="http://en.wikipedia.org/wiki/Arity">Arity</a>

@@ -154,6 +154,11 @@ public class Function0Test {
 
     }
 
+    @Nested
+    class CurryTests {
+
+    }
+
     @Test
     public void shouldNarrow(){
         final Function0<String> wideFunction = () -> "Zero args";
