@@ -1670,7 +1670,7 @@ def generateMainClasses(): Unit = {
               })("\n\n")}
 
 
-              ${(1 until i).gen(j => {
+              ${(1 to i).gen(j => {
                 val partialApplicationArgs = (1 to i).filter(_ != j).gen(k => s"T$k t$k")(", ")
                 val resultFunctionGenerics = (1 to i).filter(_ != j).gen(k => s"T$k")(", ")
                 val applyArgs = (1 to i).gen(k => s"t$k")(", ")
