@@ -32,7 +32,6 @@ import io.vavr.collection.Stream;
 import io.vavr.control.Option;
 import io.vavr.control.Try;
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.concurrent.CancellationException;
@@ -79,35 +78,10 @@ public class FutureTest extends AbstractValueTest {
 
         @Override
         public void beforeEach(ExtensionContext context) {
-            printInfo("[STARTING]", context);
-            printForkJoinPoolInfo();
         }
 
         @Override
         public void afterEach(ExtensionContext context) {
-            printInfo("[FINISHED]", context);
-        }
-
-        private void printInfo(String prefix, ExtensionContext context) {
-            System.out.printf("%s %s %s%n", prefix, LocalDateTime.now(), context.getTestMethod()
-              .map(java.lang.reflect.Method::getName).orElse("?"));
-        }
-
-        private void printForkJoinPoolInfo() {
-            final ForkJoinPool pool = ForkJoinPool.commonPool();
-            final String info = String.format("- [ForkJoinPool.commonPool()] parallelism: %s, poolSize: %s, isAsyncMode: %s, runningThreadCount: %s, activeThreadCount: %s, isQuiescent: %s, stealCount: %s, queuedTaskCount: %s, queuedSubmissionCount: %s, hasQueuedSubmissions: %s",
-              pool.getParallelism(),
-              pool.getPoolSize(),
-              pool.getAsyncMode(),
-              pool.getRunningThreadCount(),
-              pool.getActiveThreadCount(),
-              pool.isQuiescent(),
-              pool.getStealCount(),
-              pool.getQueuedTaskCount(),
-              pool.getQueuedSubmissionCount(),
-              pool.hasQueuedSubmissions()
-            );
-            System.out.println(info);
         }
     }
 
