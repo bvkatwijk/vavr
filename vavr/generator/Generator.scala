@@ -45,6 +45,7 @@ def generateMainClasses(): Unit = {
 
   // Workaround: Use /$javadoc instead of /** in a StringContext when IntelliJ IDEA otherwise shows up errors in the editor
   val javadoc = "**"
+  val comment = "//"
 
   genAPI()
   genFunctions()
@@ -2635,7 +2636,7 @@ def generateMainClasses(): Unit = {
  * Generate Vavr src-gen/test/java classes
  */
 def generateTestClasses(): Unit = {
-
+  val comment = "//"
   genAPITests()
   genFunctionTests()
   genMapOfEntriesTests()
@@ -3211,14 +3212,14 @@ def generateTestClasses(): Unit = {
                   final $AtomicInteger integer = new $AtomicInteger();
                   final $name$i<${(1 to i + 1).gen(j => "Integer")(", ")}> f = (${(1 to i).gen(j => s"i$j")(", ")}) -> ${(1 to i).gen(j => s"i$j")(" + ")}${(i > 0).gen(" + ")}integer.getAndIncrement();
                   final $name$i<${(1 to i + 1).gen(j => "Integer")(", ")}> memo = f.memoized();
-                  // should apply f on first apply()
+                  $comment should apply f on first apply()
                   final int expected = memo.apply(${(1 to i).gen(j => s"$j")(", ")});
-                  // should return memoized value of second apply()
+                  $comment should return memoized value of second apply()
                   $assertThat(memo.apply(${(1 to i).gen(j => s"$j")(", ")})).isEqualTo(expected);
                   ${(i > 0).gen(xs"""
-                    // should calculate new values when called subsequently with different parameters
+                    $comment should calculate new values when called subsequently with different parameters
                     $assertThat(memo.apply(${(1 to i).gen(j => s"${j + 1} ")(", ")})).isEqualTo(${(1 to i).gen(j => s"${j + 1} ")(" + ")} + 1);
-                    // should return memoized value of second apply() (for new value)
+                    $comment should return memoized value of second apply() (for new value)
                     $assertThat(memo.apply(${(1 to i).gen(j => s"${j + 1} ")(", ")})).isEqualTo(${(1 to i).gen(j => s"${j + 1} ")(" + ")} + 1);
                   """)}
               }
