@@ -103,16 +103,15 @@ public class PromiseTest {
 
             private String produceSomething() {
                 Concurrent.zZz();
-                System.out.println("Making " + product);
                 return product;
             }
 
             private void continueDoingSomethingUnrelated() {
-                System.out.println("Unreleated stuff");
+                // Empty
             }
 
             private void startDoingSomething() {
-                System.out.println("Something else");
+                // Empty
             }
         }
 
