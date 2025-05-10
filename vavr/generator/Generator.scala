@@ -3491,16 +3491,15 @@ def generateTestClasses(): Unit = {
                 ${(1 to i).gen(j =>
                   val genArgs = (1 to i).gen(k => "String")(", ")
                   val params = (1 to i).gen(k => s"String s$k")(", ")
-                  val values = (1 to i).gen(k => if (k == j) "\"xx\"" else s"\"s$k\"")(", ")
-                  val expected = (1 to i).gen(k => if (k == j) "XX" else s"s$k")("")
+                  val values = (1 to i).filter(_ != j).gen(k => s"\"s$k\"")(", ")
+                  val expected = (1 to i).gen(k => s"s$k")("")
                   val concat = (1 to i).gen(k => s"s$k")(" + ")
                   xs"""
 
                   @$test
-                  public void shouldCompose$j() ${checked.gen(" throws Throwable ")}{
+                  public void shouldCurry$j() ${checked.gen(" throws Throwable ")}{
                       final $name$i<$genArgs, String> concat = ($params) -> $concat;
-                      final Function1<String, String> toUpperCase = String::toUpperCase;
-                      assertThat(concat.compose$j(toUpperCase).apply($values)).isEqualTo(\"$expected\");
+                      assertThat(concat.curry$j(\"$j\").apply($values)).isEqualTo(\"$expected\");
                   }
 
                   """
