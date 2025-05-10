@@ -3356,7 +3356,7 @@ def generateTestClasses(): Unit = {
                       $assertThrows(${im.getType("java.security.NoSuchAlgorithmException")}.class, () -> {
                           $name$i<MessageDigest> digest = () -> ${im.getType("java.security.MessageDigest")}.getInstance("Unknown");
                           Function$i<MessageDigest> unchecked = digest.unchecked();
-                          unchecked.apply(); // Look ma, we throw an undeclared checked exception!
+                          unchecked.apply(); $comment Look ma, we throw an undeclared checked exception!
                       });
                   }
 
