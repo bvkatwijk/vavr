@@ -3284,7 +3284,7 @@ def generateTestClasses(): Unit = {
                       assertThat(pf.isDefinedAt(0)).isTrue();
                       assertThat(pf.isDefinedAt(1)).isFalse();
                       assertThat(pf.apply(0)).isEqualTo("0");
-                      assertThat(pf.apply(1)).isEqualTo("1"); // it is valid to return a value, even if isDefinedAt returns false
+                      assertThat(pf.apply(1)).isEqualTo("1"); $comment it is valid to return a value, even if isDefinedAt returns false
                   }
                 """})}
 
