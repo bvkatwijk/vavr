@@ -29,6 +29,8 @@ val VARARGS = 10
 val TARGET_MAIN = s"${project.getBasedir()}/src-gen/main/java"
 val TARGET_TEST = s"${project.getBasedir()}/src-gen/test/java"
 val CHARSET = java.nio.charset.StandardCharsets.UTF_8
+val comment = "//"
+val javadoc = "**"
 
 /**
  * ENTRY POINT
