@@ -192,12 +192,12 @@ public class Function1Test {
     }
 
     @Nested
-    class CurryTests {
+    class ApplyTests {
 
       @Test
-      public void shouldCurry1() {
+      public void shouldApply1() {
           final Function1<String, String> concat = (String s1) -> s1;
-          assertThat(concat.curry1("s1").apply()).isEqualTo("s1");
+          assertThat(concat.apply1("s1").apply()).isEqualTo("s1");
       }
 
     }

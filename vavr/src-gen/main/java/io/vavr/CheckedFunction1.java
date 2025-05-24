@@ -160,12 +160,12 @@ public interface CheckedFunction1<T1, R> extends Serializable {
     R apply(T1 t1) throws Throwable;
 
     /**
-     * Curries supplied value to this function as the 1st argument.
+     * Applies supplied value to this function as the 1st argument.
      *
      * @param t1 argument 1
      * @return a partial application of this function
      */
-    default CheckedFunction0<R> curry1(T1 t1) {
+    default CheckedFunction0<R> apply1(T1 t1) {
         return () -> apply(t1);
     }
 

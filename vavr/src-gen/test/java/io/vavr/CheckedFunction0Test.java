@@ -202,7 +202,7 @@ public class CheckedFunction0Test {
     }
 
     @Nested
-    class CurryTests {
+    class ApplyTests {
 
     }
 

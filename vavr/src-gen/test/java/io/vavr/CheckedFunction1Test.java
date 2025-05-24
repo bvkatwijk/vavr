@@ -215,12 +215,12 @@ public class CheckedFunction1Test {
     }
 
     @Nested
-    class CurryTests {
+    class ApplyTests {
 
       @Test
-      public void shouldCurry1()  throws Throwable {
+      public void shouldApply1()  throws Throwable {
           final CheckedFunction1<String, String> concat = (String s1) -> s1;
-          assertThat(concat.curry1("s1").apply()).isEqualTo("s1");
+          assertThat(concat.apply1("s1").apply()).isEqualTo("s1");
       }
 
     }

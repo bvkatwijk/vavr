@@ -155,7 +155,7 @@ public class Function0Test {
     }
 
     @Nested
-    class CurryTests {
+    class ApplyTests {
 
     }
 

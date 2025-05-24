@@ -269,54 +269,54 @@ public class CheckedFunction8Test {
     }
 
     @Nested
-    class CurryTests {
+    class ApplyTests {
 
       @Test
-      public void shouldCurry1()  throws Throwable {
+      public void shouldApply1()  throws Throwable {
           final CheckedFunction8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
-          assertThat(concat.curry1("s1").apply("s2", "s3", "s4", "s5", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+          assertThat(concat.apply1("s1").apply("s2", "s3", "s4", "s5", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
       }
 
       @Test
-      public void shouldCurry2()  throws Throwable {
+      public void shouldApply2()  throws Throwable {
           final CheckedFunction8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
-          assertThat(concat.curry2("s2").apply("s1", "s3", "s4", "s5", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+          assertThat(concat.apply2("s2").apply("s1", "s3", "s4", "s5", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
       }
 
       @Test
-      public void shouldCurry3()  throws Throwable {
+      public void shouldApply3()  throws Throwable {
           final CheckedFunction8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
-          assertThat(concat.curry3("s3").apply("s1", "s2", "s4", "s5", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+          assertThat(concat.apply3("s3").apply("s1", "s2", "s4", "s5", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
       }
 
       @Test
-      public void shouldCurry4()  throws Throwable {
+      public void shouldApply4()  throws Throwable {
           final CheckedFunction8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
-          assertThat(concat.curry4("s4").apply("s1", "s2", "s3", "s5", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+          assertThat(concat.apply4("s4").apply("s1", "s2", "s3", "s5", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
       }
 
       @Test
-      public void shouldCurry5()  throws Throwable {
+      public void shouldApply5()  throws Throwable {
           final CheckedFunction8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
-          assertThat(concat.curry5("s5").apply("s1", "s2", "s3", "s4", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+          assertThat(concat.apply5("s5").apply("s1", "s2", "s3", "s4", "s6", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
       }
 
       @Test
-      public void shouldCurry6()  throws Throwable {
+      public void shouldApply6()  throws Throwable {
           final CheckedFunction8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
-          assertThat(concat.curry6("s6").apply("s1", "s2", "s3", "s4", "s5", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+          assertThat(concat.apply6("s6").apply("s1", "s2", "s3", "s4", "s5", "s7", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
       }
 
       @Test
-      public void shouldCurry7()  throws Throwable {
+      public void shouldApply7()  throws Throwable {
           final CheckedFunction8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
-          assertThat(concat.curry7("s7").apply("s1", "s2", "s3", "s4", "s5", "s6", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
+          assertThat(concat.apply7("s7").apply("s1", "s2", "s3", "s4", "s5", "s6", "s8")).isEqualTo("s1s2s3s4s5s6s7s8");
       }
 
       @Test
-      public void shouldCurry8()  throws Throwable {
+      public void shouldApply8()  throws Throwable {
           final CheckedFunction8<String, String, String, String, String, String, String, String, String> concat = (String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) -> s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8;
-          assertThat(concat.curry8("s8").apply("s1", "s2", "s3", "s4", "s5", "s6", "s7")).isEqualTo("s1s2s3s4s5s6s7s8");
+          assertThat(concat.apply8("s8").apply("s1", "s2", "s3", "s4", "s5", "s6", "s7")).isEqualTo("s1s2s3s4s5s6s7s8");
       }
 
     }

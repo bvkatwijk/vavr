@@ -185,32 +185,32 @@ public interface CheckedFunction3<T1, T2, T3, R> extends Serializable {
     }
 
     /**
-     * Curries supplied value to this function as the 1st argument.
+     * Applies supplied value to this function as the 1st argument.
      *
      * @param t1 argument 1
      * @return a partial application of this function
      */
-    default CheckedFunction2<T2, T3, R> curry1(T1 t1) {
+    default CheckedFunction2<T2, T3, R> apply1(T1 t1) {
         return (T2 t2, T3 t3) -> apply(t1, t2, t3);
     }
 
     /**
-     * Curries supplied value to this function as the 2nd argument.
+     * Applies supplied value to this function as the 2nd argument.
      *
      * @param t2 argument 2
      * @return a partial application of this function
      */
-    default CheckedFunction2<T1, T3, R> curry2(T2 t2) {
+    default CheckedFunction2<T1, T3, R> apply2(T2 t2) {
         return (T1 t1, T3 t3) -> apply(t1, t2, t3);
     }
 
     /**
-     * Curries supplied value to this function as the 3rd argument.
+     * Applies supplied value to this function as the 3rd argument.
      *
      * @param t3 argument 3
      * @return a partial application of this function
      */
-    default CheckedFunction2<T1, T2, R> curry3(T3 t3) {
+    default CheckedFunction2<T1, T2, R> apply3(T3 t3) {
         return (T1 t1, T2 t2) -> apply(t1, t2, t3);
     }
 

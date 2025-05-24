@@ -1678,12 +1678,12 @@ def generateMainClasses(): Unit = {
                 val applyArgs = (1 to i).gen(k => s"t$k")(", ")
                 xs"""
                   /$javadoc
-                   * Curries supplied value to this function as the ${j.ordinal} argument.
+                   * Applies supplied value to this function as the ${j.ordinal} argument.
                    *
                    * @param t$j argument $j
                    * @return a partial application of this function
                    */
-                  default $name${i - 1}<$resultFunctionGenerics> curry$j(T$j t$j) {
+                  default $name${i - 1}<$resultFunctionGenerics> apply$j(T$j t$j) {
                       return ($partialApplicationArgs) -> apply($applyArgs);
                   }
                 """
@@ -3489,7 +3489,7 @@ def generateTestClasses(): Unit = {
               }
 
               @Nested
-              class CurryTests {
+              class ApplyTests {
                 ${(1 to i).gen(j =>
                   val genArgs = (1 to i).gen(k => "String")(", ")
                   val params = (1 to i).gen(k => s"String s$k")(", ")
@@ -3499,9 +3499,9 @@ def generateTestClasses(): Unit = {
                   xs"""
 
                   @$test
-                  public void shouldCurry$j() ${checked.gen(" throws Throwable ")}{
+                  public void shouldApply$j() ${checked.gen(" throws Throwable ")}{
                       final $name$i<$genArgs, String> concat = ($params) -> $concat;
-                      assertThat(concat.curry$j(\"s$j\").apply($values)).isEqualTo(\"$expected\");
+                      assertThat(concat.apply$j(\"s$j\").apply($values)).isEqualTo(\"$expected\");
                   }
 
                   """

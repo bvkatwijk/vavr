@@ -179,18 +179,18 @@ public class Function2Test {
     }
 
     @Nested
-    class CurryTests {
+    class ApplyTests {
 
       @Test
-      public void shouldCurry1() {
+      public void shouldApply1() {
           final Function2<String, String, String> concat = (String s1, String s2) -> s1 + s2;
-          assertThat(concat.curry1("s1").apply("s2")).isEqualTo("s1s2");
+          assertThat(concat.apply1("s1").apply("s2")).isEqualTo("s1s2");
       }
 
       @Test
-      public void shouldCurry2() {
+      public void shouldApply2() {
           final Function2<String, String, String> concat = (String s1, String s2) -> s1 + s2;
-          assertThat(concat.curry2("s2").apply("s1")).isEqualTo("s1s2");
+          assertThat(concat.apply2("s2").apply("s1")).isEqualTo("s1s2");
       }
 
     }
